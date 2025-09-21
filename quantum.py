@@ -33,7 +33,7 @@ warnings.filterwarnings('ignore')
 # Streamlit Configuration
 # -------------------------
 st.set_page_config(
-    page_title="Advanced Portfolio Optimizer",
+    page_title="Portfolio Optimizer",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded"
