@@ -769,7 +769,7 @@ risk_free_rate = st.sidebar.slider(
 ) / 100
 
 # Classical-specific parameters
-if optimization_type in ["Classical Optimization", "Both Methods"]:
+if optimization_type in ["Classical Optimization", "Both Methods", "Quantum Optimization (QAOA)"]:
     st.sidebar.subheader("🏛️ Classical Parameters")
     classical_method = st.sidebar.selectbox(
         "Classical Strategy:",
@@ -863,10 +863,7 @@ if st.session_state.get('optimization_run', False):
         tab1, tab2, tab3 = st.tabs(["📊 Classical Results", "🚀 Quantum Results", "⚖️ Comparison"])
 
         with tab1:
-            classical_method = st.sidebar.selectbox(
-                "Classical Strategy:",
-                ["Maximum Sharpe Ratio", "Minimum Volatility", "Maximum Return"]
-            )
+
             # Classical optimization
             optimal_weights = optimize_portfolio_classical(mean_returns, cov_matrix, risk_free_rate, classical_method)
             opt_return, opt_volatility, opt_sharpe = portfolio_performance(optimal_weights, mean_returns, cov_matrix,
