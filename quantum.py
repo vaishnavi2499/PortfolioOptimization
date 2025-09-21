@@ -777,7 +777,7 @@ if optimization_type in ["Classical Optimization", "Both Methods"]:
     )
 
 # Quantum-specific parameters
-if optimization_type in ["Quantum Optimization (QAOA)", "Both Methods"]:
+if optimization_type in ["Quantum Optimization (QAOA)", "Both Methods", "Classical Optimization"]:
     st.sidebar.subheader("🔬 Quantum Parameters")
 
     quantum_risk_factor = st.sidebar.slider(
@@ -863,6 +863,10 @@ if st.session_state.get('optimization_run', False):
         tab1, tab2, tab3 = st.tabs(["📊 Classical Results", "🚀 Quantum Results", "⚖️ Comparison"])
 
         with tab1:
+            classical_method = st.sidebar.selectbox(
+                "Classical Strategy:",
+                ["Maximum Sharpe Ratio", "Minimum Volatility", "Maximum Return"]
+            )
             # Classical optimization
             optimal_weights = optimize_portfolio_classical(mean_returns, cov_matrix, risk_free_rate, classical_method)
             opt_return, opt_volatility, opt_sharpe = portfolio_performance(optimal_weights, mean_returns, cov_matrix,
