@@ -62,7 +62,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("📈 Advanced Portfolio Optimization Dashboard")
+st.title("Portfolio Optimization Dashboard")
 st.markdown(
     "**Classical & Quantum Portfolio Optimization** - Find optimal asset allocation using modern portfolio theory and quantum algorithms")
 
