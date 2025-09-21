@@ -2,6 +2,6 @@ Modern Portfolio Optimization theory and QAOA quantum algorithm for portfolio op
 Installation:
 Clone this repository and install dependencies:
 ```bash
-git clone https://github.com/<your-username>/markowitz.git
+git clone https://github.com/vaishnavi2499/PortfolioOptimization.git
 cd markowitz
 pip install -r requirements.txt
