@@ -567,7 +567,7 @@ def create_classical_visualizations(data, returns, mean_returns, cov_matrix, val
 def create_quantum_visualizations(result, classical_result, stocks, mu, sigma, prices):
     """Create quantum optimization visualizations"""
 
-    st.header("🚀 Quantum Optimization Results")
+    st.header(" Quantum Optimization Results")
 
     # Calculate metrics
     annual_returns = mu * 252
@@ -579,7 +579,7 @@ def create_quantum_visualizations(result, classical_result, stocks, mu, sigma, p
     result_col1, result_col2 = st.columns(2)
 
     with result_col1:
-        st.markdown("**🎯 QAOA Selected Portfolio:**")
+        st.markdown("** QAOA Selected Portfolio:**")
         if selected_assets:
             for asset in selected_assets:
                 st.markdown(f"✅ **{asset}**")
@@ -648,7 +648,7 @@ def create_quantum_visualizations(result, classical_result, stocks, mu, sigma, p
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
-        st.subheader("🎯 Risk-Return Profile")
+        st.subheader(" Risk-Return Profile")
 
         # Risk-Return scatter
         colors = ['green' if x > 0.5 else 'red' for x in result.x]
@@ -677,7 +677,7 @@ def create_quantum_visualizations(result, classical_result, stocks, mu, sigma, p
         st.plotly_chart(fig, use_container_width=True)
 
     # Covariance matrix heatmap
-    st.subheader("🔥 Asset Correlation Matrix")
+    st.subheader(" Asset Correlation Matrix")
 
     correlation_matrix = sigma / np.outer(np.sqrt(np.diag(sigma)), np.sqrt(np.diag(sigma)))
 
@@ -813,7 +813,7 @@ if optimization_type in ["Quantum Optimization (QAOA)", "Both Methods", "Classic
     )
 
 # Run optimization button
-run_optimization = st.sidebar.button("🚀 Run Optimization", type="primary")
+run_optimization = st.sidebar.button(" Run Optimization", type="primary")
 
 # -------------------------
 # Main Content
@@ -860,7 +860,7 @@ if st.session_state.get('optimization_run', False):
 
     # Create tabs for different optimization methods
     if current_optimization_type == "Both Methods":
-        tab1, tab2, tab3 = st.tabs(["📊 Classical Results", "🚀 Quantum Results", "⚖️ Comparison"])
+        tab1, tab2, tab3 = st.tabs([" Classical Results", " Quantum Results", "⚖️ Comparison"])
 
         with tab1:
 
@@ -932,7 +932,7 @@ if st.session_state.get('optimization_run', False):
                                 st.write(f"• {asset}: {weight:.1%}")
 
                     with col2:
-                        st.subheader("🚀 Quantum Method")
+                        st.subheader(" Quantum Method")
                         if len(quantum_selected) > 0:
                             # Calculate quantum portfolio metrics
                             quantum_indices = [i for i, x in enumerate(qaoa_result.x) if x > 0.5]
@@ -955,7 +955,7 @@ if st.session_state.get('optimization_run', False):
                             st.warning("No assets selected by quantum method")
 
                     # Method comparison chart
-                    st.subheader("📊 Method Comparison")
+                    st.subheader(" Method Comparison")
 
                     if len(quantum_selected) > 0:
                         comparison_data = {
@@ -1029,7 +1029,7 @@ else:
     st.info("👈 Configure your portfolio parameters in the sidebar and click 'Run Optimization' to get started!")
 
     # Create tabs for information
-    info_tab1, info_tab2, info_tab3 = st.tabs(["🎯 How to Use", "🏛️ Classical Methods", "🚀 Quantum Methods"])
+    info_tab1, info_tab2, info_tab3 = st.tabs([" How to Use", " Classical Methods", " Quantum Methods"])
 
     with info_tab1:
         st.subheader("🎯 How to Use This Tool")
@@ -1075,7 +1075,7 @@ else:
         """)
 
     with info_tab3:
-        st.subheader("🚀 Quantum Portfolio Optimization (QAOA)")
+        st.subheader(" Quantum Portfolio Optimization (QAOA)")
         if QUANTUM_AVAILABLE:
             st.markdown("""
             **Quantum Approximate Optimization Algorithm (QAOA)** - Quantum combinatorial optimization
